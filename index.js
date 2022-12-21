@@ -31,11 +31,9 @@ peoples = {
 }
 
 var doc = "";
-var i;
-var j;
-for (i in peoples) {
+for (var i in peoples) {
     doc = doc + "<h5>" + i + "</h5>";
-    for (j in peoples[i]) {
+    for (var j in peoples[i]) {
         doc = doc + '<p><a href="' + peopels[i][j] + '">' + j + "</a></p> ";
     }
     doc = doc + "<br>"
