@@ -55,7 +55,7 @@ function shpe(peoples) {
         doc = doc + '<br>';
         doc = doc + '<h5>' + i + '</h5>';
         for (var j in peoples[i]) {
-            doc = doc + '<p><a href=\"' + peoples[i][j] + '\">' + j + '</a></p>';
+            doc = doc + '<p><a href=\"' + peoples[i][j] + '\" target="_blank">' + j + '</a></p>';
         }
     }
     var tag = document.getElementById('peoples');tag.innerHTML = tag.innerHTML + doc;
