@@ -55,7 +55,7 @@ var show_text = function(data){
 }
 
 // 构造api接口url
-var url = "https://api.github.com/repos/lrsgzs/blog_topics/contents/yls.js?callback=show_text"
+var url = "//api.github.com/repos/lrsgzs/blog_topics/contents/yls.js?callback=show_text"
 
 // 通过callback和script标签来加载api，解决跨域问题
 var script_dom = document.createElement('script');  // 创建标签
