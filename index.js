@@ -32,11 +32,11 @@ peoples = {
 
 var doc = "";
 for (var i in peoples) {
+    doc = doc + "<br>"
     doc = doc + "<h5>" + i + "</h5>";
     for (var j in peoples[i]) {
         doc = doc + '<p><a href="' + peoples[i][j] + '">' + j + "</a></p> ";
     }
-    doc = doc + "<br>"
 }
 
 var tag = document.getElementById("peoples");
