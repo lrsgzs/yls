@@ -38,19 +38,31 @@ function getDecode(str){
 }
 
 // 显示人员
-var show_peoples = function(data){
+var show_text = function(data){
     peopels_str = getDecode(data["data"]["content"]).replaceAll("\r", "");  // 获取文章markdown（md）数据
     
     var script_dom = document.createElement('script');  // 创建标签
     script_dom.language = 'javascript';  // 设置语言
     script_dom.type = 'text/javascript';  // 设置类型
-    script_dom.innerHTML = peopels_str + "\n" + "var doc = '';for (var i in peoples) {doc = doc + '<br>';doc = doc + '<h5>' + i + '</h5>';for (var j in peoples[i]) {doc = doc + '<p><a href=\"' + peoples[i][j] + '\">' + j + '</a></p>';}}var tag = document.getElementById('peoples');tag.innerHTML = tag.innerHTML + doc;";  // 设置脚本
+    script_dom.innerHTML = peopels_str + "\n" + "shpe(peoples)";  // 设置脚本
     var head = document.getElementsByTagName('head').item(0);  //获取head标签
     head.appendChild(script_dom);  //添加标签
 }
 
+function shpe(peoples) {
+    var doc = '';
+    for (var i in peoples) {
+        doc = doc + '<br>';
+        doc = doc + '<h5>' + i + '</h5>';
+        for (var j in peoples[i]) {
+            doc = doc + '<p><a href=\"' + peoples[i][j] + '\">' + j + '</a></p>';
+        }
+    }
+    var tag = document.getElementById('peoples');tag.innerHTML = tag.innerHTML + doc;
+}
+
 // 构造api接口url
-var url = "https://api.github.com/repos/lrsgzs/blog_topics/contents/yls.js?callback=showpeople"
+var url = "https://api.github.com/repos/lrsgzs/blog_topics/contents/yls.js?callback=show_text"
 
 // 通过callback和script标签来加载api，解决跨域问题
 var script_dom = document.createElement('script');  // 创建标签
