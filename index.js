@@ -14,7 +14,6 @@ function shpe(peoples) {
 function shwo(works) {
     var doc = '';
     for (var i in works) {
-        doc = doc + '<br>';
         doc = doc + '<p><a href=\"' + works[i] + '\" target="_blank">' + i + '</a></p>';
     }
     var tag = document.getElementById('works');
