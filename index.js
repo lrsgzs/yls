@@ -1,33 +1,38 @@
-peoples = {
-    "编程部 - Scratch部": {
-        "巩佳宁": "https://code.xueersi.com/space/19162616",
-        "周小荻": "https://code.xueersi.com/space/19776819",
-    },
-    "编程部 - Python部": {
-        "周小荻": "https://code.xueersi.com/space/19776819",
-        "杨欣儒": "https://code.xueersi.com/space/16074710",
-    },
-    "编程部 - C++部": {
-        "空": "#"
-    },
-    "编程部 - 动画部": {
-        "盛翊展": "https://code.xueersi.com/space/60701655",
-    },
-    "编程部 - 跑酷部": {
-        "盛翊展": "https://code.xueersi.com/space/60701655",
-    },
-    "编程部 - 改编部": {
-        "空": "#"
-    },
-    "外交部": {
-        "刘某杰": "https://code.xueersi.com/space/78145585",
-    },
-    "宣传部": {
-        "周利贞": "https://code.xueersi.com/space/60177039",
-    },
-    "成员": {
-        "杨云骢": "https://code.xueersi.com/space/12502420",
+function shpe(peoples) {
+    var doc = '';
+    for (var i in peoples) {
+        doc = doc + '<br>';
+        doc = doc + '<h5>' + i + '</h5>';
+        for (var j in peoples[i]) {
+            doc = doc + '<p><a href=\"' + peoples[i][j] + '\" target="_blank">' + j + '</a></p>';
+        }
     }
+    var tag = document.getElementById('peoples');
+    tag.innerHTML = tag.innerHTML + doc;
+}
+
+function shwo(works) {
+    var doc = '';
+    for (var i in works) {
+        doc = doc + '<br>';
+        doc = doc + '<p><a href=\"' + works[i] + '\" target="_blank">' + i + '</a></p>';
+    }
+    var tag = document.getElementById('works');
+    tag.innerHTML = tag.innerHTML + doc;
+}
+
+function shst(studios) {
+    var doc = '';
+    for (var i in studios) {
+        doc = doc + '<br>';
+        doc = doc + '<h5>' + i + '</h5>';
+        for (var j in studios[i]) {
+            var temp = '<h6>' + j + '：<a href="' + studios[i][j][1] + '" target="_blank">' + studios[i][j][0] + "</a></h6>";
+            doc = doc + temp;
+        }
+    }
+    var tag = document.getElementById('studio');
+    tag.innerHTML = tag.innerHTML + doc;
 }
 
 // 解码
@@ -44,21 +49,9 @@ var show_text = function(data){
     var script_dom = document.createElement('script');  // 创建标签
     script_dom.language = 'javascript';  // 设置语言
     script_dom.type = 'text/javascript';  // 设置类型
-    script_dom.innerHTML = peopels_str + "\n" + "shpe(peoples)";  // 设置脚本
+    script_dom.innerHTML = peopels_str + "\n" + "shpe(peoples);shwo(works);shst(studios)";  // 设置脚本
     var head = document.getElementsByTagName('head').item(0);  //获取head标签
     head.appendChild(script_dom);  //添加标签
-}
-
-function shpe(peoples) {
-    var doc = '';
-    for (var i in peoples) {
-        doc = doc + '<br>';
-        doc = doc + '<h5>' + i + '</h5>';
-        for (var j in peoples[i]) {
-            doc = doc + '<p><a href=\"' + peoples[i][j] + '\" target="_blank">' + j + '</a></p>';
-        }
-    }
-    var tag = document.getElementById('peoples');tag.innerHTML = tag.innerHTML + doc;
 }
 
 // 构造api接口url
