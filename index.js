@@ -34,6 +34,20 @@ function shst(studios) {
     tag.innerHTML = tag.innerHTML + doc;
 }
 
+function shgp(good_peoples) {
+    var doc = '';
+    for (var i in good_peoples) {
+        doc = doc + '<br>';
+        doc = doc + '<h5>' + i + '</h5>';
+        for (var j in good_peoples[i]) {
+            var temp = '<h6><a href="' + studios[i][j][0] + '" target="_blank">' + j + "（星级：" + good_peoples[i][j][i].toString() + "）" + "</a></h6>";
+            doc = doc + temp;
+        }
+    }
+    var tag = document.getElementById('good_people');
+    tag.innerHTML = tag.innerHTML + doc;
+}
+
 // 解码
 function getDecode(str){
     return decodeURIComponent(atob(str).split('').map(function (c) {
@@ -41,14 +55,14 @@ function getDecode(str){
       }).join(''));
 }
 
-// 显示人员
+// 显示内容
 var show_text = function(data){
     peopels_str = getDecode(data["data"]["content"]).replaceAll("\r", "");  // 获取文章markdown（md）数据
     
     var script_dom = document.createElement('script');  // 创建标签
     script_dom.language = 'javascript';  // 设置语言
     script_dom.type = 'text/javascript';  // 设置类型
-    script_dom.innerHTML = peopels_str + "\n" + "shpe(peoples);shwo(works);shst(studios)";  // 设置脚本
+    script_dom.innerHTML = peopels_str + "\n" + "shpe(peoples);shwo(works);shst(studios);shgp(good_peoples)";  // 设置脚本
     var head = document.getElementsByTagName('head').item(0);  //获取head标签
     head.appendChild(script_dom);  //添加标签
 }
