@@ -40,7 +40,7 @@ function shgp(good_peoples) {
         doc = doc + '<br>';
         doc = doc + '<h5>' + i + '</h5>';
         for (var j in good_peoples[i]) {
-            var temp = '<h6><a href="' + studios[i][j][0] + '" target="_blank">' + j + "（星级：" + good_peoples[i][j][i].toString() + "）" + "</a></h6>";
+            var temp = '<h6><a href="' + good_peoples[i][j][0] + '" target="_blank">' + j + "（星级：" + good_peoples[i][j][i].toString() + "）" + "</a></h6>";
             doc = doc + temp;
         }
     }
